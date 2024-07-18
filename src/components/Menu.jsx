@@ -27,7 +27,8 @@ function Menu() {
                             <Nav className="ms-auto">
                                 { usuario && <Link className="nav-link" to="/lista">Lista</Link> }
                                 { !usuario && <Link className="nav-link" to="/">Login</Link> }
-                                { !usuario &&<Link className="nav-link" to="/cadastro">Cadastro</Link> }
+                                { !usuario &&<Link className="nav-link" to= "/cadastro">Cadastro</Link> }
+                                { usuario && <span>Olá, {usuario.displayName}!</span>}
                                 { usuario && <Button variant="outline-light" onClick={handleLogout}>Sair</Button> }
                             </Nav>
                         </Navbar.Collapse>
