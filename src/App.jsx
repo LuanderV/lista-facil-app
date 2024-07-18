@@ -1,30 +1,29 @@
-import { useEffect, useState } from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { Toaster } from "react-hot-toast";
-import Menu from "./components/Menu";
-import NotFound from "./pages/NotFound";
-import Login from "./pages/Login";
-import Cadastro from "./pages/Cadastro";
-import Lista from "./pages/Lista";
-import { onAuthStateChanged } from "firebase/auth";
-import { auth } from "./firebase/config";
-import { UsuarioContext } from "./contexts/UsuarioContext";
-import Loader from "./components/Loader";
-
-
+import { useEffect, useState } from 'react'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { Toaster } from 'react-hot-toast'
+import Menu from './components/Menu'
+import NotFound from './pages/NotFound'
+import Login from './pages/Login'
+import Cadastro from './pages/Cadastro'
+import Lista from './pages/Lista'
+import { onAuthStateChanged } from 'firebase/auth'
+import { auth } from './firebase/config'
+import { UsuarioContext } from './contexts/UsuarioContext'
+import Loader from './components/Loader'
+import Home from './pages/Home'
 
 function App() {
-  const [ usuarioLogado, setUsuarioLogado ] = useState(null);
-  const [loading, setLoading ] = useState(true);
+  const [usuarioLogado, setUsuarioLogado] = useState(null)
+  const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setUsuarioLogado(user);
-      setLoading(false);
-    });
-  }, []);
+    onAuthStateChanged(auth, user => {
+      setUsuarioLogado(user)
+      setLoading(false)
+    })
+  }, [])
 
-  if(loading) {
+  if (loading) {
     return <Loader />
   }
 
@@ -33,17 +32,17 @@ function App() {
       <UsuarioContext.Provider value={usuarioLogado}>
         <BrowserRouter>
           <Menu />
-            <Routes>
-              <Route path="/" element={<Login />} />
-              <Route path="/lista" element={<Lista />} />
-              <Route path="/cadastro" element={<Cadastro />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/lista" element={<Lista />} />
+            <Route path="/cadastro" element={<Cadastro />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
         </BrowserRouter>
         <Toaster position="bottom-right" />
       </UsuarioContext.Provider>
     </>
-  );
+  )
 }
 
-export default App;
+export default App

@@ -1,20 +1,28 @@
-import { Card, Button } from 'react-bootstrap';
+import { Card, Button } from 'react-bootstrap'
+import Ilustracao from '../assets/img/not-found.png'
 
 const NotFound = () => {
   return (
-    <div className="container mt-4">
+    <main className="container mt-4">
       <Card className="text-center">
         <Card.Header>404</Card.Header>
         <Card.Body>
-          <Card.Title>Page Not Found</Card.Title>
+          <div>
+            <Card.Title>OOOps!</Card.Title>
+            <Card.Title>Página não encontrada!</Card.Title>
+          </div>
           <Card.Text>
-            A Página que você está tentando acessar, não existe.
+            Não foi possível encontrar o que você procurou. Tente pesquisar
+            novamente.
           </Card.Text>
-          <Button variant="primary" href="/">Voltar para o início.</Button>
+          <Button variant="primary" href="/">
+            Voltar para o início.
+          </Button>
         </Card.Body>
       </Card>
-    </div>
-  );
-};
+      <Card.Img src={Ilustracao} />
+    </main>
+  )
+}
 
-export default NotFound;
+export default NotFound
