@@ -1,9 +1,10 @@
 import { Container, Nav, Navbar, Button } from "react-bootstrap";
 import { Link, useNavigate } from "react-router-dom";
-import Logo from "../assets/img/Logo.png";
 import { logout } from "../firebase/auth";
 import { useContext } from "react";
 import { UsuarioContext } from "../contexts/UsuarioContext";
+import { toast } from "react-hot-toast";
+import Logo from "../assets/img/Logo.png";
 
 function Menu() {
     const usuario = useContext(UsuarioContext);
@@ -12,7 +13,7 @@ function Menu() {
     function handleLogout() {
         logout().then(() => {
             toast.success("Você foi deslogado!")
-            navigate("/login");
+            navigate("/");
         });
     }
 
