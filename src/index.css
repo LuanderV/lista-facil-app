@@ -1,1 +1,10 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
+
+.navbar {
+    background-color:#BFFBF4;
+}
+
+.form-section {
+    width: 320px;
+    margin: 16px auto;
+}
