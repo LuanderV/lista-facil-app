@@ -6,7 +6,7 @@ import { UsuarioContext } from '../contexts/UsuarioContext'
 import { toast } from 'react-hot-toast'
 import Logo from '../assets/img/listafacil-logo.png'
 
-function Menu({ className }) {
+function Menu({ corHome }) {
   const usuario = useContext(UsuarioContext)
   const navigate = useNavigate()
 
@@ -19,7 +19,7 @@ function Menu({ className }) {
 
   return (
     <>
-      <Navbar className={' navbar ' + className} expand="lg">
+      <Navbar className={' navbar ' + corHome} expand="lg">
         <Container fluid>
           <Link to="/">
             <img src={Logo} />
@@ -27,24 +27,26 @@ function Menu({ className }) {
           <Navbar.Toggle />
           <Navbar.Collapse className="justify-content-end">
             <Nav>
-              <Link className="nav-link">Home</Link>
+              <Link className="nav-link fw-semibold">Home</Link>
               {usuario && (
-                <Link className="nav-link" to="/lista">
+                <Link className="nav-link fw-semibold" to="/lista">
                   Lista
                 </Link>
               )}
               {!usuario && (
-                <Link className="nav-link" to="/login">
+                <Link className="nav-link fw-semibold" to="/login">
                   Login
                 </Link>
               )}
               {!usuario && (
-                <Link className="nav-link" to="/cadastro">
+                <Link className="nav-link fw-semibold" to="/cadastro">
                   Cadastro
                 </Link>
               )}
               {usuario && (
-                <span className=" nav-link">Olá, {usuario.displayName}!</span>
+                <span className=" nav-link fw-medium">
+                  Olá, {usuario.displayName}!
+                </span>
               )}
               {usuario && (
                 <Button variant="outline-light" onClick={handleLogout}>

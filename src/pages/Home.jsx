@@ -1,11 +1,11 @@
 import { Card } from 'react-bootstrap'
 import imgCompras from '../assets/img/compras-home.png'
-import Login from './Login'
+import Login from '../components/Login'
 import Menu from '../components/Menu'
 function Home() {
   return (
     <>
-      <Menu className="navbar-home" />
+      <Menu corHome="navbar-home" />
       <main className="d-flex align-items-center justify-content-center contain-main-home">
         <Card className="contain-home border-0">
           <Card.Header className="p-0 border-0 w-50">

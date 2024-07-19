@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import { Toaster } from 'react-hot-toast'
 import Menu from './components/Menu'
 import NotFound from './pages/NotFound'
-import Login from './pages/Login'
+import Login from './components/Login'
 import Cadastro from './pages/Cadastro'
 import Lista from './pages/Lista'
 import { onAuthStateChanged } from 'firebase/auth'
@@ -11,6 +11,7 @@ import { auth } from './firebase/config'
 import { UsuarioContext } from './contexts/UsuarioContext'
 import Loader from './components/Loader'
 import Home from './pages/Home'
+import Footer from './components/Footer'
 
 function App() {
   const [usuarioLogado, setUsuarioLogado] = useState(null)
@@ -40,6 +41,7 @@ function App() {
           </Routes>
         </BrowserRouter>
         <Toaster position="bottom-right" />
+        <Footer />
       </UsuarioContext.Provider>
     </>
   )

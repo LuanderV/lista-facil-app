@@ -43,7 +43,7 @@ function Login() {
         <form className="form-section" onSubmit={handleSubmit(entrar)}>
           <h1 className="fw-bold">Login</h1>
           <hr />
-          <div className=" pb-4">
+          <div className=" pb-2">
             <label htmlFor="email" className=" fw-semibold">
               Email:
             </label>
@@ -55,10 +55,10 @@ function Login() {
               {...register('email', { required: 'O email é obrigatório' })}
             />
             {errors.email && (
-              <small className="invalid">{errors.email.message}</small>
+              <small className="text-danger">{errors.email.message}</small>
             )}
           </div>
-          <div className=" pb-4">
+          <div className=" pb-2">
             <label htmlFor="senha" className=" fw-semibold">
               Senha:
             </label>
@@ -73,7 +73,7 @@ function Login() {
               })}
             />
             {errors.senha && (
-              <small className="invalid">{errors.senha.message}</small>
+              <small className="text-danger">{errors.senha.message}</small>
             )}
           </div>
           <Button className="w-100 fw-bolder login-btn" type="submit">
@@ -91,7 +91,7 @@ function Login() {
             />
             Entrar com o Google
           </Button>
-          <div className="d-flex flex-column text-center ">
+          <div className="d-flex flex-column text-center login-div">
             <span className="login-span">ou</span>
             <Link to="/cadastro" className="nav-link fw-semibold">
               CADASTRE-SE
