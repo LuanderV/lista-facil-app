@@ -34,7 +34,7 @@ function Menu() {
                   </Link>
                 )}
                 {!usuario && (
-                  <Link className="nav-link" to="/">
+                  <Link className="nav-link" to="/login">
                     Login
                   </Link>
                 )}
@@ -43,7 +43,6 @@ function Menu() {
                     Cadastro
                   </Link>
                 )}
-                <Link className="nav-link">Sua Lista</Link>
                 {usuario && <span>Olá, {usuario.displayName}!</span>}
                 {usuario && (
                   <Button variant="outline-light" onClick={handleLogout}>

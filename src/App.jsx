@@ -34,6 +34,7 @@ function App() {
           <Menu />
           <Routes>
             <Route path="/" element={<Home />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/lista" element={<Lista />} />
             <Route path="/cadastro" element={<Cadastro />} />
             <Route path="*" element={<NotFound />} />
