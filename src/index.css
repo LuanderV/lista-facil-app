@@ -1,15 +1,117 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Urbanist', sans-serif;
+  height: 100%;
+  font-size: 1rem;
+}
+
+.contain-main-home {
+  background-color: #bffbf4;
+  height: 100vh;
+  gap: 100px;
+  align-items: center;
+}
+
 .navbar-home {
   background-color: #bffbf4;
 }
 
-.navbar-lista {
-  background-color: #bffbf4;
+.navbar-lista,
+.navbar-cadastro {
+  background-color: #eef7fb;
+}
+
+.navbar-notfound {
+  background-color: #f9f6ed;
+}
+
+.navbar-add-edit {
+  background-color: #ffffff;
 }
 
 .form-section {
-  width: 320px;
-  margin: 16px auto;
+  width: 417px;
+  height: 464px;
+  padding: 45px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 9.2px 7px rgba(0, 0, 0, 0.25);
+}
+
+.imgCompras-home {
+  position: absolute;
+  width: 295px;
+  left: 185px;
+  bottom: 10px;
+}
+.contain-home {
+  background-color: #bffbf4;
+  display: flex;
+  padding: 16px;
+  width: 480px;
+  height: 360px;
+}
+
+.home-cardtitle {
+  background-color: #bffbf4;
+}
+
+.text-home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  letter-spacing: 6px;
+  height: 92px;
+  background-color: #000000;
+  border-radius: 22px;
+  font-size: 5rem;
+  color: #ffffff;
+}
+
+.login-form-inputs {
+  border-radius: 0px;
+  border: 0px;
+  border-bottom: 1px solid #000000;
+}
+
+.login-btn {
+  background-color: #16ab88;
+  border-radius: 50px;
+  font-size: 1.3rem;
+  border: 0px;
+  letter-spacing: 2px;
+  margin-bottom: 16px;
+}
+
+.login-btn-google {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  justify-content: center;
+  background-color: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 50px;
+  margin-bottom: 10px;
+  font-weight: 900;
+  font-size: 1.3rem;
+  color: #000000;
+}
+
+.login-btn-img {
+  width: 20px;
+  height: 20px;
+}
+
+.login-span {
+  color: #b5bac0;
 }

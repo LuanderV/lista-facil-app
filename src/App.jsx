@@ -31,7 +31,6 @@ function App() {
     <>
       <UsuarioContext.Provider value={usuarioLogado}>
         <BrowserRouter>
-          <Menu />
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />

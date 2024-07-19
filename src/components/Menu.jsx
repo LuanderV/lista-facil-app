@@ -6,7 +6,7 @@ import { UsuarioContext } from '../contexts/UsuarioContext'
 import { toast } from 'react-hot-toast'
 import Logo from '../assets/img/listafacil-logo.png'
 
-function Menu() {
+function Menu({ className }) {
   const usuario = useContext(UsuarioContext)
   const navigate = useNavigate()
 
@@ -19,41 +19,42 @@ function Menu() {
 
   return (
     <>
-      <header>
-        <Navbar className="navbar" expand="lg">
-          <Container fluid>
-            <Link to="/">
-              <img src={Logo} />
-            </Link>
-            <Navbar.Toggle />
-            <Navbar.Collapse>
-              <Nav className="ms-auto">
-                {usuario && (
-                  <Link className="nav-link" to="/lista">
-                    Lista
-                  </Link>
-                )}
-                {!usuario && (
-                  <Link className="nav-link" to="/login">
-                    Login
-                  </Link>
-                )}
-                {!usuario && (
-                  <Link className="nav-link" to="/cadastro">
-                    Cadastro
-                  </Link>
-                )}
-                {usuario && <span>Olá, {usuario.displayName}!</span>}
-                {usuario && (
-                  <Button variant="outline-light" onClick={handleLogout}>
-                    Sair
-                  </Button>
-                )}
-              </Nav>
-            </Navbar.Collapse>
-          </Container>
-        </Navbar>
-      </header>
+      <Navbar className={' navbar ' + className} expand="lg">
+        <Container fluid>
+          <Link to="/">
+            <img src={Logo} />
+          </Link>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Nav>
+              <Link className="nav-link">Home</Link>
+              {usuario && (
+                <Link className="nav-link" to="/lista">
+                  Lista
+                </Link>
+              )}
+              {!usuario && (
+                <Link className="nav-link" to="/login">
+                  Login
+                </Link>
+              )}
+              {!usuario && (
+                <Link className="nav-link" to="/cadastro">
+                  Cadastro
+                </Link>
+              )}
+              {usuario && (
+                <span className=" nav-link">Olá, {usuario.displayName}!</span>
+              )}
+              {usuario && (
+                <Button variant="outline-light" onClick={handleLogout}>
+                  Sair
+                </Button>
+              )}
+            </Nav>
+          </Navbar.Collapse>
+        </Container>
+      </Navbar>
     </>
   )
 }
