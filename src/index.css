@@ -1,6 +1,7 @@
 @import 'bootstrap/dist/css/bootstrap.min.css';
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap');
 
+
 * {
   margin: 0;
   padding: 0;
@@ -145,4 +146,24 @@ body {
 
 .footer-span {
   color: #16ab88;
+}
+
+.bg-light {
+  background-color: #f8f9fa !important;
+}
+
+.text-decoration-line-through {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.border-bottom {
+  border-bottom: 2px solid #dee2e6;
+}
+
+.badge {
+  padding: 0.5em 1em;
+  border-radius: 0.25em;
+  display: inline-block;
+  font-size: 0.875em;
 }

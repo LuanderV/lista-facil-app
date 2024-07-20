@@ -18,7 +18,7 @@ function Login() {
     loginUsuario(data.email, data.senha)
       .then(() => {
         toast.success('Bem-vindo(a)!')
-        navigate('/lista')
+        navigate('/listaCompras')
       })
       .catch(() => {
         toast.error('Email ou Senha incorretos!')
@@ -29,7 +29,7 @@ function Login() {
     entrarGoogle()
       .then(() => {
         toast.success('Bem vindo(a)!')
-        navigate('/lista')
+        navigate('/listaCompras')
       })
       .catch(error => {
         toast.error('Ocorreu um erro ao fazer login com o Google.')
