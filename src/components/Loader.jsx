@@ -1,14 +1,12 @@
-import { Container, Spinner } from 'react-bootstrap';
+import { Container, Spinner } from 'react-bootstrap'
 
-function Loader() {
+function Loader(props) {
   return (
-    <>
-      <Container>
-        <Spinner animation="border" variant="danger" />
-        <span className='mt-5'>Carregando</span>
-      </Container>
-    </>
-  );
+    <Container className="d-flex align-items-center justify-content-center mt-5 fw-semibold">
+      <Spinner animation="border" variant="dark" />
+      <span className="ms-1">Carregando...</span>
+    </Container>
+  )
 }
 
-export default Loader;
+export default Loader

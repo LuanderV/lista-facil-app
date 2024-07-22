@@ -93,10 +93,9 @@ function Login() {
           </Button>
           <div className="d-flex flex-column text-center login-div">
             <span className="login-span">ou</span>
-            <Link to="/cadastro" className="nav-link fw-semibold">
+            <Link to="/cadastro" className="nav-link fw-semibold login-texto">
               CADASTRE-SE
             </Link>
-            <p></p>
           </div>
         </form>
       </main>

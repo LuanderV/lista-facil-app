@@ -9,12 +9,12 @@ function Footer() {
   return (
     <footer className="footer-contain">
       <Card className="p-0 border-0 footer-contain-card ">
-        <Card.Body className=" p-0 d-flex align-items-center justify-content-center mb-0">
+        <Card.Body className=" p-0 d-flex align-items-center mb-0 footer-card-body">
           <Card.Body className="p-0 d-flex flex-column justify-content-center">
             <Card.Text className="text-center footer-text fw-medium">
               Mídias Sociais
             </Card.Text>
-            <Card.Body className="d-flex justify-content-center">
+            <Card.Body className="d-flex justify-content-center p-2">
               <Card.Link href="#">
                 <Card.Img className="footer-icon" src={whatsappIcon} />
               </Card.Link>
