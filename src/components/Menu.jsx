@@ -20,7 +20,7 @@ function Menu(props) {
   return (
     <>
       <Navbar
-        className={`navbar  ${props.corHome} ${props.corLista} ${props.corCadastro} contain-menu`}
+        className={`navbar  ${props.corHome} ${props.corLista} ${props.corCadastro} ${props.corAddLista} contain-menu`}
         expand="lg"
       >
         <Container fluid>

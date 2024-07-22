@@ -58,7 +58,7 @@ function Lista() {
   return (
     <>
       <Menu corLista="navbar-lista" />
-      <main className="d-flex justify-content-center align-items-center lista-contain-main">
+      <main className="d-flex justify-content-center align-items-baseline lista-contain-main">
         <Container className="lista-container">
           <h1 className="mb-4 text-center">Lista de Compras</h1>
 
@@ -73,13 +73,13 @@ function Lista() {
               {itens.map(item => (
                 <Card
                   key={item.id}
-                  className={`mb-4 shadow-sm lista-card ${
+                  className={`mb-4  lista-card ${
                     item.concluido
-                      ? 'bg-light text-muted text-decoration-line-through'
+                      ? 'bg-light text-muted text-decoration-line-through lista-efeito-concluido'
                       : ''
                   }`}
                 >
-                  <Card.Body>
+                  <Card.Body className="card-test">
                     <Row className=" align-items-baseline">
                       <Col md={8} className="w-25">
                         <Card.Title>{item.nome}</Card.Title>
