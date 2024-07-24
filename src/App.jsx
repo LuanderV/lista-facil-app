@@ -12,6 +12,7 @@ import { UsuarioContext } from './contexts/UsuarioContext'
 import Loader from './components/Loader'
 import Home from './pages/Home'
 import Footer from './components/Footer'
+import { Spinner } from 'react-bootstrap'
 
 function App() {
   const [usuarioLogado, setUsuarioLogado] = useState(null)
@@ -25,7 +26,11 @@ function App() {
   }, [])
 
   if (loading) {
-    return <Loader />
+    return (
+      <div class="d-flex justify-content-center">
+        <Spinner animation="grow" />
+      </div>
+    )
   }
 
   return (

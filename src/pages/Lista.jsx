@@ -22,6 +22,10 @@ function Lista() {
   const usuario = useContext(UsuarioContext)
   const navigate = useNavigate()
 
+  if (usuario === null) {
+    return <Navigate to="/login" />
+  }
+
   function carregarDados() {
     if (usuario) {
       getItemsUsuario(usuario.uid).then(resultados => {
@@ -51,10 +55,6 @@ function Lista() {
     carregarDados()
   }, [usuario])
 
-  if (usuario === null) {
-    return <Navigate to="/login" />
-  }
-
   return (
     <>
       <Menu corLista="navbar-lista" />
@@ -70,75 +70,77 @@ function Lista() {
               >
                 Adicionar Item
               </Link>
-              {itens.map(item => (
-                <Card
-                  key={item.id}
-                  className={`mb-4  lista-card ${
-                    item.concluido
-                      ? 'bg-light text-muted text-decoration-line-through lista-efeito-concluido'
-                      : ''
-                  }`}
-                >
-                  <Card.Body className="card-test">
-                    <Row className=" align-items-baseline">
-                      <Col md={8} className="w-25">
-                        <Card.Title>{item.nome}</Card.Title>
-                        <Card.Text>Quantidade: {item.quantidade}</Card.Text>
-                        {/* <Card.Text><strong>Data:</strong> {item.data}</Card.Text> */}
-                        <Card.Text>
-                          <span
-                            className={`badge rounded-pill ${
-                              categoriaCores[item.categoria] || 'bg-light'
-                            }`}
-                          >
-                            {item.categoria}
-                          </span>
-                        </Card.Text>
-                      </Col>
-                      <Col>
-                        <Card.Text>{item.descricao}</Card.Text>
-                      </Col>
-                      <Col md={4} className="text-end">
-                        <div className="d-flex align-items-center justify-content-end">
-                          <Form.Check
-                            type="checkbox"
-                            checked={item.concluido}
-                            onChange={() =>
-                              atualizarStatus(item.id, !item.concluido)
-                            }
-                            label="Concluído"
-                            className="me-3"
-                            isValid
-                          />
-                          <Button
-                            variant="outline-info"
-                            className="me-2"
-                            onClick={() =>
-                              navigate(`/listaCompras/editar/${item.id}`)
-                            }
-                          >
-                            <img
-                              src={editList}
-                              className="lista-icone-editar"
-                              alt="icone editar item da lista"
+              {itens.map(item => {
+                return (
+                  <Card
+                    key={item.id}
+                    className={`mb-4  lista-card ${
+                      item.concluido
+                        ? 'bg-light text-muted text-decoration-line-through lista-efeito-concluido'
+                        : ''
+                    }`}
+                  >
+                    <Card.Body className="card-test">
+                      <Row className=" align-items-baseline">
+                        <Col md={8} className="w-25">
+                          <Card.Title>{item.nome}</Card.Title>
+                          <Card.Text>Quantidade: {item.quantidade}</Card.Text>
+                          {/* <Card.Text><strong>Data:</strong> {item.data}</Card.Text> */}
+                          <Card.Text>
+                            <span
+                              className={`badge rounded-pill ${
+                                categoriaCores[item.categoria] || 'bg-light'
+                              }`}
+                            >
+                              {item.categoria}
+                            </span>
+                          </Card.Text>
+                        </Col>
+                        <Col>
+                          <Card.Text>{item.descricao}</Card.Text>
+                        </Col>
+                        <Col md={4} className="text-end">
+                          <div className="d-flex align-items-center justify-content-end">
+                            <Form.Check
+                              type="checkbox"
+                              checked={item.concluido}
+                              onChange={() =>
+                                atualizarStatus(item.id, !item.concluido)
+                              }
+                              label="Concluído"
+                              className="me-3"
+                              isValid
                             />
-                          </Button>
-                          <Button
-                            variant="outline-danger"
-                            onClick={() => deletarItem(item.id)}
-                          >
-                            <img
-                              src={deleteList}
-                              className="lista-icone-editar"
-                              alt="icone deletar item da lista"
-                            />
-                          </Button>
-                        </div>
-                      </Col>
-                    </Row>
-                  </Card.Body>
-                </Card>
-              ))}
+                            <Button
+                              variant="outline-info"
+                              className="me-2"
+                              onClick={() =>
+                                navigate(`/listaCompras/editar/${item.id}`)
+                              }
+                            >
+                              <img
+                                src={editList}
+                                className="lista-icone-editar"
+                                alt="icone editar item da lista"
+                              />
+                            </Button>
+                            <Button
+                              variant="outline-danger"
+                              onClick={() => deletarItem(item.id)}
+                            >
+                              <img
+                                src={deleteList}
+                                className="lista-icone-editar"
+                                alt="icone deletar item da lista"
+                              />
+                            </Button>
+                          </div>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                )
+              })}
             </section>
           ) : (
             <Loader />
